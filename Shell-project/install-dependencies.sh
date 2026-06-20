@@ -14,6 +14,10 @@ do
   sudo yum install -y $package
 done
 
+sudo yum install -y postfix
+sudo systemctl enable postfix
+sudo systemctl start postfix
+
 sudo systemctl enable nginx
 sudo systemctl start nginx
 
