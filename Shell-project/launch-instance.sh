@@ -18,7 +18,7 @@ echo "installing package "
 sudo yum install at -y 
 
 
-start systemctl enable atd
+sudo systemctl enable atd
 
 sudo systemctl start atd
 
