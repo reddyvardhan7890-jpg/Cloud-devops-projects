@@ -4,6 +4,12 @@
 
 EMAIL=$1
 
+
+if [ -z "$EMAIL" ]
+then
+    echo "Usage: $0 <email-address>"
+    exit 1
+fi
 DATE=$(date)
 
 
