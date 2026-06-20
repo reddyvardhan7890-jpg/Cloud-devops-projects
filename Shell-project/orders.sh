@@ -1,9 +1,5 @@
 #!/bin/bash
-mkdir orders
-touch orders/orders.txt
 
-mkdir scripts
-mv send_received.sh send_preparing.sh send_completed.sh scripts/
 
 EMAIL=$1
 
