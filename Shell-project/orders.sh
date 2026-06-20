@@ -1,10 +1,5 @@
 #!/bin/bash
-<<<<<<< HEAD
-=======
 
-mkdir orders
-touch orders/orders.txt
->>>>>>> 5b7dbd5fc87f4f178c9fc905def1eda3c8873563
 
 
 EMAIL=$1
