@@ -1,8 +1,5 @@
 #!/bin/bash
 
-echo "updating server"
-
-sudo yum update -y
 
 echo "installing nginx"
 
@@ -12,9 +9,9 @@ echo "Installing unzip"
 
 sudo yum install unzip -y
 
-echo "installing mailx"
+echo "installing s-nail"
 
-sudo yum install mailx -y
+sudo yum install -y s-nail
 
 echo "installing package "
 
