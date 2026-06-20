@@ -3,7 +3,7 @@
 packages=(
     "nginx"
     "unzip"
-    "mailx"
+    "s-nail"
     wget 
     curl
     at
