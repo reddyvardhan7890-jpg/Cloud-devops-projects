@@ -4,6 +4,12 @@ EMAIL=$1
 
 DATE=$(date)
 
+mkdir orders
+touch orders/orders.txt
+
+mkdir scripts
+mv send_received.sh send_preparing.sh send_completed.sh scripts/
+
 echo "$EMAIL | $DATE" >> orders/orders.txt
 
 bash scripts/send_received.sh "$EMAIL"
