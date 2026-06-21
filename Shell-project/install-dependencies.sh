@@ -21,7 +21,7 @@ sudo systemctl start nginx
 sudo systemctl enable atd
 sudo systemctl start atd
 
-sudo yum install -y fcgiwrap spawn-fcgi
+sudo yum install fcgiwrap -y
 
 sudo systemctl enable fcgiwrap
 sudo systemctl start fcgiwrap
