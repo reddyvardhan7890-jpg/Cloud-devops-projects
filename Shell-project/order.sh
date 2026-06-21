@@ -1,25 +1,38 @@
 #!/bin/bash
 
+echo "Content-Type: text/html"
+echo ""
 
+read POST_DATA
 
-EMAIL=$1
+EMAIL=$(echo "$POST_DATA" | cut -d'=' -f2 | sed 's/%40/@/')
 
+BASE_DIR="/usr/lib/cgi-bin"
 
-if [ -z "$EMAIL" ]
-then
-    echo "Usage: $0 <email-address>"
-    exit 1
-fi
 DATE=$(date)
 
+echo "$EMAIL | $DATE" >> /usr/lib/cgi-bin/orders.txt
 
+bash $BASE_DIR/send_received.sh "$EMAIL"
 
-echo "$EMAIL | $DATE" >> orders.txt
+bash $BASE_DIR/scheduler.sh "$EMAIL"
 
-bash send_received.sh "$EMAIL"
+cat <<EOF
+<html>
+<head>
+<title>PizzaHub</title>
+</head>
 
-echo "bash $(pwd)/send_preparing.sh $EMAIL" | at now + 5 minutes
+<body>
 
-echo "bash $(pwd)/send_completed.sh $EMAIL" | at now + 10 minutes
+<h1>🍕 PizzaHub</h1>
 
-echo "Order scheduled successfully"
+<h2>Order placed successfully!</h2>
+
+<p>Email notifications scheduled.</p>
+
+<a href="/">Back to Menu</a>
+
+</body>
+</html>
+EOF

@@ -1,10 +1,8 @@
-
 #!/bin/bash
 
-echo "updating the permissions of the files"
+echo "Updating permissions..."
 
 chmod -R 755 website
-
 chmod +x *.sh
 
-echo "permissions updated successfully"
+echo "Permissions updated successfully"

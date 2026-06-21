@@ -2,12 +2,18 @@
 
 EMAIL=$1
 
-echo "
+SUBJECT="Order Completed - PizzaHub"
 
-Your delicious pizza is ready!
+BODY="Hi,
 
-Thank you for ordering with PizzaHub.
+Your order is ready and completed.
 
-Enjoy your meal.
+Enjoy your meal!
 
-" | mail -s "Order Completed" "$EMAIL"
+Thanks for ordering."
+
+{
+echo "Subject: $SUBJECT"
+echo
+echo "$BODY"
+} | msmtp "$EMAIL"

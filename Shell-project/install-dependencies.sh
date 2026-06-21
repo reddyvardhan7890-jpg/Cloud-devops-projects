@@ -1,25 +1,30 @@
-#/bin/bash
+#!/bin/bash
+
+set -e
 
 packages=(
-    "nginx"
-    "unzip"
-    "s-nail"
-    wget 
+    nginx
+    unzip
+    wget
     curl
     at
+    msmtp
+    mailx
 )
 
-for package in "${packages[@]}"
-do
-  sudo yum install -y $package
-done
+echo "Installing packages..."
+sudo yum install -y "${packages[@]}"
 
-sudo yum install -y postfix
-sudo systemctl enable postfix
-sudo systemctl start postfix
-
+echo "Enabling services..."
 sudo systemctl enable nginx
 sudo systemctl start nginx
 
 sudo systemctl enable atd
 sudo systemctl start atd
+
+sudo yum install -y fcgiwrap spawn-fcgi
+
+sudo systemctl enable fcgiwrap
+sudo systemctl start fcgiwrap
+
+echo "Setup completed successfully"

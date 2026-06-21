@@ -1,10 +1,5 @@
 #!/bin/bash
 
-#!/bin/bash
-set -e
-
-chmod +x *.sh
-
 ./install-dependencies.sh
 
 ./launch-instance.sh
@@ -13,8 +8,4 @@ chmod +x *.sh
 
 ./deploy.sh
 
-echo "Pizza website deployed successfully!"
-
-./order.sh Harsha2145@gmail.com
-
-echo "Pizza order placed successfully! Check your email for updates on your order status."
+echo "Server Ready!"

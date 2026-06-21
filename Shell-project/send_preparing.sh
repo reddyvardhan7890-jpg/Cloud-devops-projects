@@ -2,12 +2,16 @@
 
 EMAIL=$1
 
-echo "
+SUBJECT="Order Preparing - PizzaHub"
 
-Good News!
+BODY="Hi,
 
-Your pizza is currently being prepared by our chef.
+Your order is now being prepared.
 
-Please wait a few minutes.
+Thanks for waiting."
 
-" | mail -s "Pizza Preparing" "$EMAIL"
+{
+echo "Subject: $SUBJECT"
+echo
+echo "$BODY"
+} | msmtp "$EMAIL"

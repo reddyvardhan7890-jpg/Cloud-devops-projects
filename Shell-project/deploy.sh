@@ -1,16 +1,23 @@
-#!bin/bash
-echo "removing default website"
+#!/bin/bash
 
-sudo rm -rf /var/www/html/*
+echo "Removing old website..."
 
-echo "copy the html files"
+sudo rm -rf /usr/share/nginx/html/*
 
-sudo cp -r website/* /var/www/html/
+echo "Copying website files..."
 
-echo "changing the ownership of the files"
+sudo cp -r website/* /usr/share/nginx/html/
 
-sudo chmod -R 755 /var/www/html
+echo "Copying shell scripts..."
 
-sudo systemctl restart httpd
+sudo mkdir -p /usr/lib/cgi-bin
 
-echo "deployed the website successfully"
+sudo cp *.sh /usr/lib/cgi-bin/
+
+chmod +x /usr/lib/cgi-bin/*.sh
+
+echo "Restarting nginx..."
+
+sudo systemctl restart nginx
+
+echo "Deployment successful"
