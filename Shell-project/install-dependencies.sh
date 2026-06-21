@@ -9,7 +9,6 @@ packages=(
     curl
     at
     msmtp
-    mailx
 )
 
 echo "Installing packages..."
