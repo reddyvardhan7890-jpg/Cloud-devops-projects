@@ -20,4 +20,9 @@ echo "Restarting services..."
 sudo systemctl restart nginx
 sudo systemctl restart atd
 
+echo "Configuring msmtp..."
+sudo cp msmtprc.template /etc/msmtprc
+sudo chmod 600 /etc/msmtprc
+sudo chown root:root /etc/msmtprc
+
 echo "Deployment successful"
