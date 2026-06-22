@@ -24,6 +24,8 @@ sudo systemctl start nginx
 sudo systemctl enable atd
 sudo systemctl start atd
 
+sudo systemctl enable fcgiwrap@nginx.socket
+sudo systemctl start fcgiwrap@nginx.socket
 
 # Allow nginx user to run at jobs properly
 sudo usermod -s /bin/bash nginx
