@@ -18,16 +18,8 @@ echo "Installing fcgiwrap..."
 sudo yum install -y fcgiwrap
 
 echo "Enabling services..."
-sudo systemctl enable nginx
-sudo systemctl start nginx
-
-sudo systemctl enable atd
-sudo systemctl start atd
-
-sudo systemctl enable fcgiwrap@nginx.socket
-sudo systemctl start fcgiwrap@nginx.socket
-
-# Allow nginx user to run at jobs properly
-sudo usermod -s /bin/bash nginx
+sudo systemctl enable --now nginx
+sudo systemctl enable --now atd
+sudo systemctl enable --now fcgiwrap@nginx.socket
 
 echo "Setup completed successfully"
